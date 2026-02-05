@@ -1,0 +1,63 @@
+# =========================
+# Python
+# =========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+dist/
+build/
+*.pyc
+# =========================
+# Virtual Environments
+# =========================
+venv/
+env/
+.env
+.env.*
+
+# =========================
+# Django
+# =========================
+*.log
+db.sqlite3
+staticfiles/
+media/
+
+# =========================
+# FastAPI / Uvicorn
+# =========================
+*.pid
+
+# =========================
+# FAISS Vector Store
+# =========================
+backend/data/faiss_index/
+backend/data/documents/
+
+# =========================
+# IDEs / Editors
+# =========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Jupyter / Notebooks
+# =========================
+.ipynb_checkpoints/
+
+# =========================
+# Logs & Temp
+# =========================
+*.tmp
+*.bak

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Research Assistant</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<h2>📄 Document Upload</h2>
+
+<form method="post" enctype="multipart/form-data" action="/">
+    {% csrf_token %}
+    <input type="file" name="document" required>
+    <button type="submit">Upload</button>
+</form>
+
+{% if upload_response %}
+    <h3>✅ Upload Status</h3>
+    <pre>{{ upload_response }}</pre>
+
+    <!-- ✅ Generate Summary Button (ONLY after upload) -->
+    <form method="post" action="/summary/" style="margin-top: 10px;">
+        {% csrf_token %}
+        <button type="submit">📝 Generate Summary</button>
+    </form>
+{% endif %}
+
+<!-- ✅ Summary Display -->
+{% if summary %}
+    <hr>
+    <h2>📝 Document Summary</h2>
+    <div class="summary-box">
+        {{ summary }}
+    </div>
+{% endif %}
+
+<hr>
+
+<h2>❓ Ask a Question</h2>
+
+<form method="post" action="/ask/">
+    {% csrf_token %}
+    <input type="text" name="question" placeholder="Ask something..." required>
+    <button type="submit">Ask</button>
+</form>
+
+{% if answer %}
+    <h3>💡 Answer</h3>
+    <p>{{ answer.answer }}</p>
+
+    {% if answer.references %}
+        <h4>📌 References</h4>
+        <ul>
+            {% for ref in answer.references %}
+                <li>
+                    {{ ref.source }}
+                    {% if ref.page %} (Page {{ ref.page }}){% endif %}
+                    {% if ref.slide %} (Slide {{ ref.slide }}){% endif %}
+                    {% if ref.sheet %} (Sheet {{ ref.sheet }}){% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endif %}
+
+</body>
+</html>

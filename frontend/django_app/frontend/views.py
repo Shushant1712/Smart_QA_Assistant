@@ -1,7 +1,7 @@
 import requests
 from django.shortcuts import render
 
-FASTAPI_BASE_URL = "http://127.0.0.1:8000/api"
+FASTAPI_BASE_URL = "https://YOUR-BACKEND.up.railway.app/api"
 
 
 def upload_document(request):

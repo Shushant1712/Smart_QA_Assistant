@@ -1,5 +1,5 @@
 
-# Smart_Assistant
+# Smart_QA_Assistant
 A GenAI-powered document intelligence system using RAG, FastAPI, Django, and FAISS.
 =======
 # 📘 Smart Assistant for Summarization

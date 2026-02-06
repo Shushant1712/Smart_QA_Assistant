@@ -74,4 +74,3 @@ FastAPI Backend
  │   └─ Return response
  ▼
 User Interface
->>>>>>> e64da1a (Initial commit: Smart Assistant for Research Summarization)

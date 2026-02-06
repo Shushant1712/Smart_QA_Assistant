@@ -1,7 +1,7 @@
 # ===============================
 # Django Frontend
 # ===============================
-django
+Django>=5.0
 
 # ===============================
 # HTTP Client (to talk to FastAPI backend)
@@ -12,3 +12,5 @@ requests
 # Environment Variables
 # ===============================
 python-dotenv
+
+gunicorn

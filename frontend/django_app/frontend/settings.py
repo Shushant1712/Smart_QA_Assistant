@@ -1,42 +1,84 @@
 from pathlib import Path
+import os
 
+# --------------------------------------------------
+# BASE
+# --------------------------------------------------
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = 'django-insecure-key'
+# --------------------------------------------------
+# SECURITY
+# --------------------------------------------------
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "django-insecure-key")
 
-DEBUG = True
+DEBUG = False  # MUST be False in production
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "localhost",
+    "127.0.0.1",
+    ".railway.app",
+]
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.railway.app",
+]
+
+# --------------------------------------------------
+# APPS
+# --------------------------------------------------
 INSTALLED_APPS = [
-    'django.contrib.contenttypes',
-    'django.contrib.staticfiles',
-    'django.contrib.sessions',
+    "django.contrib.contenttypes",
+    "django.contrib.staticfiles",
+    "django.contrib.sessions",
 ]
 
-
+# --------------------------------------------------
+# MIDDLEWARE
+# --------------------------------------------------
 MIDDLEWARE = [
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
 ]
 
-ROOT_URLCONF = 'frontend.urls'
+# --------------------------------------------------
+# URLS / WSGI
+# --------------------------------------------------
+ROOT_URLCONF = "frontend.urls"
 
+WSGI_APPLICATION = "frontend.wsgi.application"
+
+# --------------------------------------------------
+# TEMPLATES
+# --------------------------------------------------
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
-        'APP_DIRS': False,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": False,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'frontend.wsgi.application'
+# --------------------------------------------------
+# DATABASE
+# --------------------------------------------------
+# ❌ NO DATABASE REQUIRED
+DATABASES = {}
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
+# --------------------------------------------------
+# STATIC FILES
+# --------------------------------------------------
+STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "staticfiles"
+STATICFILES_DIRS = [BASE_DIR / "static"]
+
+# --------------------------------------------------
+# DEFAULT PRIMARY KEY
+# --------------------------------------------------
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

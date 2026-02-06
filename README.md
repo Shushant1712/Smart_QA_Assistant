@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Smart_Assistant
 A GenAI-powered document intelligence system using RAG, FastAPI, Django, and FAISS.
 =======

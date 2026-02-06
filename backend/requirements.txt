@@ -1,48 +1,58 @@
-# ==============================
-# Backend – Core Framework
-# ==============================
-fastapi
-uvicorn
+# ===============================
+# Core Python & Utilities
+# ===============================
 python-dotenv
 pydantic
+pydantic-settings
+requests
+tqdm
 
-# ==============================
-# GenAI & RAG
-# ==============================
-openai
+# ===============================
+# FastAPI Backend
+# ===============================
+fastapi
+uvicorn
+python-multipart
+
+# ===============================
+# Django Frontend
+# ===============================
+django
+
+# ===============================
+# LangChain & RAG
+# ===============================
 langchain
 langchain-community
+langchain-openai
 
-# ==============================
+# ===============================
+# OpenAI
+# ===============================
+openai
+
+# ===============================
 # Vector Database
-# ==============================
+# ===============================
 faiss-cpu
 
-# ==============================
-# Document Processing – CORE
-# ==============================
+# ===============================
+# Document Processing
+# ===============================
 pypdf
 python-docx
-
-# ==============================
-# Document Processing – EXTENDED
-# ==============================
 python-pptx
 pandas
 openpyxl
-beautifulsoup4
 markdown
+beautifulsoup4
+lxml
 
-# ==============================
-# Frontend – Django
-# ==============================
-django
+# ===============================
+# Optional (Recommended)
+# ===============================
+numpy
 
-# ==============================
-# Utilities
-# ==============================
-tqdm
-requests
 
 /*
 !SECTIONsmart-assistant-for-research-summarization/
